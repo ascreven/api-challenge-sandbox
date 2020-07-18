@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span>Opportunities</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-opportunity" [routerLink]="['/opportunity/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Opportunity
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="opportunities?.length === 0">
+        <span>No opportunities found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="opportunities && opportunities.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Title</span></th>
+                    <th scope="col" ><span>Sol Num</span></th>
+                    <th scope="col" ><span>Noticeid</span></th>
+                    <th scope="col" ><span>State</span></th>
+                    <th scope="col" ><span>Zip</span></th>
+                    <th scope="col" ><span>Posted From</span></th>
+                    <th scope="col" ><span>Posted To</span></th>
+                    <th scope="col" ><span>Reponse Dead Line</span></th>
+                    <th scope="col" ><span>Classification Code</span></th>
+                    <th scope="col" ><span>Naics Code</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let opportunity of opportunities ;trackBy: trackId">
+                    <td><a [routerLink]="['/opportunity', opportunity.id, 'view']">{{ opportunity.id }}</a></td>
+                    <td>{{ opportunity.title }}</td>
+                    <td>{{ opportunity.solNum }}</td>
+                    <td>{{ opportunity.noticeid }}</td>
+                    <td>{{ opportunity.state }}</td>
+                    <td>{{ opportunity.zip }}</td>
+                    <td>{{ opportunity.postedFrom | date:'mediumDate' }}</td>
+                    <td>{{ opportunity.postedTo | date:'mediumDate' }}</td>
+                    <td>{{ opportunity.reponseDeadLine }}</td>
+                    <td>{{ opportunity.classificationCode }}</td>
+                    <td>{{ opportunity.naicsCode }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/opportunity', opportunity.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/opportunity', opportunity.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(opportunity)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

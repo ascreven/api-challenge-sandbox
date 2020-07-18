@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opportunity">
+            <h2><span>Opportunity</span> {{ opportunity.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ opportunity.title }}</span>
+                </dd>
+                <dt><span>Sol Num</span></dt>
+                <dd>
+                    <span>{{ opportunity.solNum }}</span>
+                </dd>
+                <dt><span>Noticeid</span></dt>
+                <dd>
+                    <span>{{ opportunity.noticeid }}</span>
+                </dd>
+                <dt><span>State</span></dt>
+                <dd>
+                    <span>{{ opportunity.state }}</span>
+                </dd>
+                <dt><span>Zip</span></dt>
+                <dd>
+                    <span>{{ opportunity.zip }}</span>
+                </dd>
+                <dt><span>Posted From</span></dt>
+                <dd>
+                    <span>{{ opportunity.postedFrom }}</span>
+                </dd>
+                <dt><span>Posted To</span></dt>
+                <dd>
+                    <span>{{ opportunity.postedTo }}</span>
+                </dd>
+                <dt><span>Reponse Dead Line</span></dt>
+                <dd>
+                    <span>{{ opportunity.reponseDeadLine }}</span>
+                </dd>
+                <dt><span>Classification Code</span></dt>
+                <dd>
+                    <span>{{ opportunity.classificationCode }}</span>
+                </dd>
+                <dt><span>Naics Code</span></dt>
+                <dd>
+                    <span>{{ opportunity.naicsCode }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opportunity', opportunity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+entity Opportunity {
+    title String
+    solNum String
+    noticeid String
+    state String
+    zip String
+    postedFrom LocalDate
+    postedTo LocalDate
+    reponseDeadLine String
+    classificationCode String
+    naicsCode String
+}
+
+

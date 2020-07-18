@@ -1,0 +1,57 @@
+{
+  "name": "Opportunity",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "solNum",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "noticeid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "zip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postedFrom",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "postedTo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "reponseDeadLine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "classificationCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "naicsCode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200718183726",
+  "entityTableName": "opportunity",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
