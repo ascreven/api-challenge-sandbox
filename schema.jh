@@ -12,7 +12,7 @@ entity Opportunity {
 
 entity Naics {
     description String maxlength(1024),
-    code String,
+    code String maxlength(6),
     title String
 }
 

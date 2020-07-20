@@ -26,7 +26,8 @@ public class Naics implements Serializable {
     @Column(name = "description", length = 1024)
     private String description;
 
-    @Column(name = "code")
+    @Size(max = 6)
+    @Column(name = "code", length = 6)
     private String code;
 
     @Column(name = "title")

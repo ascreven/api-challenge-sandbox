@@ -18,7 +18,7 @@ export class NaicsUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     description: [null, [Validators.maxLength(1024)]],
-    code: [],
+    code: [null, [Validators.maxLength(6)]],
     title: [],
   });
 
