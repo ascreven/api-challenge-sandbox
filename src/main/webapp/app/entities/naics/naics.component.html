@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span>Naics</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-naics" [routerLink]="['/naics/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Naics
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="naics?.length === 0">
+        <span>No naics found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="naics && naics.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Description</span></th>
+                    <th scope="col" ><span>Code</span></th>
+                    <th scope="col" ><span>Title</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let naics of naics ;trackBy: trackId">
+                    <td><a [routerLink]="['/naics', naics.id, 'view']">{{ naics.id }}</a></td>
+                    <td>{{ naics.description }}</td>
+                    <td>{{ naics.code }}</td>
+                    <td>{{ naics.title }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/naics', naics.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/naics', naics.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(naics)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
