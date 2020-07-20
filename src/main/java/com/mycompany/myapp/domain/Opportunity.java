@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -47,8 +48,9 @@ public class Opportunity implements Serializable {
     @Column(name = "classification_code")
     private String classificationCode;
 
-    @Column(name = "naics_code")
-    private String naicsCode;
+    @ManyToOne
+    @JsonIgnoreProperties(value = "opportunities", allowSetters = true)
+    private Naics naics;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -176,17 +178,17 @@ public class Opportunity implements Serializable {
         this.classificationCode = classificationCode;
     }
 
-    public String getNaicsCode() {
-        return naicsCode;
+    public Naics getNaics() {
+        return naics;
     }
 
-    public Opportunity naicsCode(String naicsCode) {
-        this.naicsCode = naicsCode;
+    public Opportunity naics(Naics naics) {
+        this.naics = naics;
         return this;
     }
 
-    public void setNaicsCode(String naicsCode) {
-        this.naicsCode = naicsCode;
+    public void setNaics(Naics naics) {
+        this.naics = naics;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -220,7 +222,6 @@ public class Opportunity implements Serializable {
             ", postedTo='" + getPostedTo() + "'" +
             ", reponseDeadLine='" + getReponseDeadLine() + "'" +
             ", classificationCode='" + getClassificationCode() + "'" +
-            ", naicsCode='" + getNaicsCode() + "'" +
             "}";
     }
 }

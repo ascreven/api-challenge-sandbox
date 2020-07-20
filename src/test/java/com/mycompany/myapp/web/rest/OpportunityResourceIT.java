@@ -58,9 +58,6 @@ public class OpportunityResourceIT {
     private static final String DEFAULT_CLASSIFICATION_CODE = "AAAAAAAAAA";
     private static final String UPDATED_CLASSIFICATION_CODE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_NAICS_CODE = "AAAAAAAAAA";
-    private static final String UPDATED_NAICS_CODE = "BBBBBBBBBB";
-
     @Autowired
     private OpportunityRepository opportunityRepository;
 
@@ -88,8 +85,7 @@ public class OpportunityResourceIT {
             .postedFrom(DEFAULT_POSTED_FROM)
             .postedTo(DEFAULT_POSTED_TO)
             .reponseDeadLine(DEFAULT_REPONSE_DEAD_LINE)
-            .classificationCode(DEFAULT_CLASSIFICATION_CODE)
-            .naicsCode(DEFAULT_NAICS_CODE);
+            .classificationCode(DEFAULT_CLASSIFICATION_CODE);
         return opportunity;
     }
     /**
@@ -108,8 +104,7 @@ public class OpportunityResourceIT {
             .postedFrom(UPDATED_POSTED_FROM)
             .postedTo(UPDATED_POSTED_TO)
             .reponseDeadLine(UPDATED_REPONSE_DEAD_LINE)
-            .classificationCode(UPDATED_CLASSIFICATION_CODE)
-            .naicsCode(UPDATED_NAICS_CODE);
+            .classificationCode(UPDATED_CLASSIFICATION_CODE);
         return opportunity;
     }
 
@@ -141,7 +136,6 @@ public class OpportunityResourceIT {
         assertThat(testOpportunity.getPostedTo()).isEqualTo(DEFAULT_POSTED_TO);
         assertThat(testOpportunity.getReponseDeadLine()).isEqualTo(DEFAULT_REPONSE_DEAD_LINE);
         assertThat(testOpportunity.getClassificationCode()).isEqualTo(DEFAULT_CLASSIFICATION_CODE);
-        assertThat(testOpportunity.getNaicsCode()).isEqualTo(DEFAULT_NAICS_CODE);
     }
 
     @Test
@@ -183,8 +177,7 @@ public class OpportunityResourceIT {
             .andExpect(jsonPath("$.[*].postedFrom").value(hasItem(DEFAULT_POSTED_FROM.toString())))
             .andExpect(jsonPath("$.[*].postedTo").value(hasItem(DEFAULT_POSTED_TO.toString())))
             .andExpect(jsonPath("$.[*].reponseDeadLine").value(hasItem(DEFAULT_REPONSE_DEAD_LINE)))
-            .andExpect(jsonPath("$.[*].classificationCode").value(hasItem(DEFAULT_CLASSIFICATION_CODE)))
-            .andExpect(jsonPath("$.[*].naicsCode").value(hasItem(DEFAULT_NAICS_CODE)));
+            .andExpect(jsonPath("$.[*].classificationCode").value(hasItem(DEFAULT_CLASSIFICATION_CODE)));
     }
     
     @Test
@@ -206,8 +199,7 @@ public class OpportunityResourceIT {
             .andExpect(jsonPath("$.postedFrom").value(DEFAULT_POSTED_FROM.toString()))
             .andExpect(jsonPath("$.postedTo").value(DEFAULT_POSTED_TO.toString()))
             .andExpect(jsonPath("$.reponseDeadLine").value(DEFAULT_REPONSE_DEAD_LINE))
-            .andExpect(jsonPath("$.classificationCode").value(DEFAULT_CLASSIFICATION_CODE))
-            .andExpect(jsonPath("$.naicsCode").value(DEFAULT_NAICS_CODE));
+            .andExpect(jsonPath("$.classificationCode").value(DEFAULT_CLASSIFICATION_CODE));
     }
     @Test
     @Transactional
@@ -238,8 +230,7 @@ public class OpportunityResourceIT {
             .postedFrom(UPDATED_POSTED_FROM)
             .postedTo(UPDATED_POSTED_TO)
             .reponseDeadLine(UPDATED_REPONSE_DEAD_LINE)
-            .classificationCode(UPDATED_CLASSIFICATION_CODE)
-            .naicsCode(UPDATED_NAICS_CODE);
+            .classificationCode(UPDATED_CLASSIFICATION_CODE);
 
         restOpportunityMockMvc.perform(put("/api/opportunities")
             .contentType(MediaType.APPLICATION_JSON)
@@ -259,7 +250,6 @@ public class OpportunityResourceIT {
         assertThat(testOpportunity.getPostedTo()).isEqualTo(UPDATED_POSTED_TO);
         assertThat(testOpportunity.getReponseDeadLine()).isEqualTo(UPDATED_REPONSE_DEAD_LINE);
         assertThat(testOpportunity.getClassificationCode()).isEqualTo(UPDATED_CLASSIFICATION_CODE);
-        assertThat(testOpportunity.getNaicsCode()).isEqualTo(UPDATED_NAICS_CODE);
     }
 
     @Test

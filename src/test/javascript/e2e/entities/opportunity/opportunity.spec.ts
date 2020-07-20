@@ -53,7 +53,7 @@ describe('Opportunity e2e test', () => {
       opportunityUpdatePage.setPostedToInput('2000-12-31'),
       opportunityUpdatePage.setReponseDeadLineInput('reponseDeadLine'),
       opportunityUpdatePage.setClassificationCodeInput('classificationCode'),
-      opportunityUpdatePage.setNaicsCodeInput('naicsCode'),
+      opportunityUpdatePage.naicsSelectLastOption(),
     ]);
 
     expect(await opportunityUpdatePage.getTitleInput()).to.eq('title', 'Expected Title value to be equals to title');
@@ -71,7 +71,6 @@ describe('Opportunity e2e test', () => {
       'classificationCode',
       'Expected ClassificationCode value to be equals to classificationCode'
     );
-    expect(await opportunityUpdatePage.getNaicsCodeInput()).to.eq('naicsCode', 'Expected NaicsCode value to be equals to naicsCode');
 
     await opportunityUpdatePage.save();
     expect(await opportunityUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

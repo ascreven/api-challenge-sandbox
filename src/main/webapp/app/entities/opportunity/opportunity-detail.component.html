@@ -44,9 +44,11 @@
                 <dd>
                     <span>{{ opportunity.classificationCode }}</span>
                 </dd>
-                <dt><span>Naics Code</span></dt>
+                <dt><span>Naics</span></dt>
                 <dd>
-                    <span>{{ opportunity.naicsCode }}</span>
+                    <div *ngIf="opportunity.naics">
+                        <a [routerLink]="['/naics', opportunity.naics?.id, 'view']">{{ opportunity.naics?.code }}</a>
+                    </div>
                 </dd>
             </dl>
 

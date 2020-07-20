@@ -8,7 +8,6 @@ entity Opportunity {
     postedTo LocalDate
     reponseDeadLine String
     classificationCode String
-    naicsCode String
 }
 
 entity Naics {
@@ -17,3 +16,6 @@ entity Naics {
     title String
 }
 
+relationship OneToMany {
+  Naics{opportunity} to Opportunity{naics(code)}
+}

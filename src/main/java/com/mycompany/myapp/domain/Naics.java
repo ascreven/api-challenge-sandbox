@@ -5,6 +5,8 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A Naics.
@@ -29,6 +31,9 @@ public class Naics implements Serializable {
 
     @Column(name = "title")
     private String title;
+
+    @OneToMany(mappedBy = "naics")
+    private Set<Opportunity> opportunities = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -76,6 +81,31 @@ public class Naics implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Set<Opportunity> getOpportunities() {
+        return opportunities;
+    }
+
+    public Naics opportunities(Set<Opportunity> opportunities) {
+        this.opportunities = opportunities;
+        return this;
+    }
+
+    public Naics addOpportunity(Opportunity opportunity) {
+        this.opportunities.add(opportunity);
+        opportunity.setNaics(this);
+        return this;
+    }
+
+    public Naics removeOpportunity(Opportunity opportunity) {
+        this.opportunities.remove(opportunity);
+        opportunity.setNaics(null);
+        return this;
+    }
+
+    public void setOpportunities(Set<Opportunity> opportunities) {
+        this.opportunities = opportunities;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

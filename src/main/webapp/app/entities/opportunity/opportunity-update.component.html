@@ -74,9 +74,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="field_naicsCode">Naics Code</label>
-                    <input type="text" class="form-control" name="naicsCode" id="field_naicsCode"
-                           formControlName="naicsCode"/>
+                    <label class="form-control-label" for="field_naics">Naics</label>
+                    <select class="form-control" id="field_naics" name="naics" formControlName="naics">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="naicsOption.id === editForm.get('naics')!.value?.id ? editForm.get('naics')!.value : naicsOption" *ngFor="let naicsOption of naics; trackBy: trackById">{{ naicsOption.code }}</option>
+                    </select>
                 </div>
             </div>
 

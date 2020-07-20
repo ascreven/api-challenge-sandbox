@@ -42,7 +42,7 @@
             <column name="classification_code" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="naics_code" type="varchar(255)">
+            <column name="naics_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -77,7 +77,6 @@
             <column name="posted_to" type="date"/>
             <column name="reponse_dead_line" type="string"/>
             <column name="classification_code" type="string"/>
-            <column name="naics_code" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

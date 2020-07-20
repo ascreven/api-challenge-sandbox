@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { INaics } from 'app/shared/model/naics.model';
 
 export interface IOpportunity {
   id?: number;
@@ -11,7 +12,7 @@ export interface IOpportunity {
   postedTo?: Moment;
   reponseDeadLine?: string;
   classificationCode?: string;
-  naicsCode?: string;
+  naics?: INaics;
 }
 
 export class Opportunity implements IOpportunity {
@@ -26,6 +27,6 @@ export class Opportunity implements IOpportunity {
     public postedTo?: Moment,
     public reponseDeadLine?: string,
     public classificationCode?: string,
-    public naicsCode?: string
+    public naics?: INaics
   ) {}
 }

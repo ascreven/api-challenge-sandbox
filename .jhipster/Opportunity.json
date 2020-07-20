@@ -36,13 +36,17 @@
     {
       "fieldName": "classificationCode",
       "fieldType": "String"
-    },
-    {
-      "fieldName": "naicsCode",
-      "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "naics",
+      "otherEntityRelationshipName": "opportunity",
+      "relationshipName": "naics",
+      "otherEntityField": "code"
+    }
+  ],
   "changelogDate": "20200718183726",
   "entityTableName": "opportunity",
   "dto": "no",

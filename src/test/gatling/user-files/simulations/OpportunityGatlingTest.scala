@@ -81,7 +81,6 @@ class OpportunityGatlingTest extends Simulation {
                 , "postedTo":"2020-01-01T00:00:00.000Z"
                 , "reponseDeadLine":"SAMPLE_TEXT"
                 , "classificationCode":"SAMPLE_TEXT"
-                , "naicsCode":"SAMPLE_TEXT"
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_opportunity_url"))).exitHereIfFailed

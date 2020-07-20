@@ -38,7 +38,8 @@ export class OpportunityUpdatePage {
   postedToInput = element(by.id('field_postedTo'));
   reponseDeadLineInput = element(by.id('field_reponseDeadLine'));
   classificationCodeInput = element(by.id('field_classificationCode'));
-  naicsCodeInput = element(by.id('field_naicsCode'));
+
+  naicsSelect = element(by.id('field_naics'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getText();
@@ -116,12 +117,20 @@ export class OpportunityUpdatePage {
     return await this.classificationCodeInput.getAttribute('value');
   }
 
-  async setNaicsCodeInput(naicsCode: string): Promise<void> {
-    await this.naicsCodeInput.sendKeys(naicsCode);
+  async naicsSelectLastOption(): Promise<void> {
+    await this.naicsSelect.all(by.tagName('option')).last().click();
   }
 
-  async getNaicsCodeInput(): Promise<string> {
-    return await this.naicsCodeInput.getAttribute('value');
+  async naicsSelectOption(option: string): Promise<void> {
+    await this.naicsSelect.sendKeys(option);
+  }
+
+  getNaicsSelect(): ElementFinder {
+    return this.naicsSelect;
+  }
+
+  async getNaicsSelectedOption(): Promise<string> {
+    return await this.naicsSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

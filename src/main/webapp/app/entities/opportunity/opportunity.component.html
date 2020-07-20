@@ -32,7 +32,7 @@
                     <th scope="col" ><span>Posted To</span></th>
                     <th scope="col" ><span>Reponse Dead Line</span></th>
                     <th scope="col" ><span>Classification Code</span></th>
-                    <th scope="col" ><span>Naics Code</span></th>
+                    <th scope="col" ><span>Naics</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -48,7 +48,11 @@
                     <td>{{ opportunity.postedTo | date:'mediumDate' }}</td>
                     <td>{{ opportunity.reponseDeadLine }}</td>
                     <td>{{ opportunity.classificationCode }}</td>
-                    <td>{{ opportunity.naicsCode }}</td>
+                    <td>
+                        <div *ngIf="opportunity.naics">
+                            <a [routerLink]="['/naics', opportunity.naics?.id, 'view']" >{{ opportunity.naics?.code }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

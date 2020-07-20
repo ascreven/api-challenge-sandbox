@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IOpportunity, Opportunity } from 'app/shared/model/opportunity.model';
 import { OpportunityService } from './opportunity.service';
+import { INaics } from 'app/shared/model/naics.model';
+import { NaicsService } from 'app/entities/naics/naics.service';
 
 @Component({
   selector: 'jhi-opportunity-update',
@@ -14,6 +16,7 @@ import { OpportunityService } from './opportunity.service';
 })
 export class OpportunityUpdateComponent implements OnInit {
   isSaving = false;
+  naics: INaics[] = [];
   postedFromDp: any;
   postedToDp: any;
 
@@ -28,14 +31,21 @@ export class OpportunityUpdateComponent implements OnInit {
     postedTo: [],
     reponseDeadLine: [],
     classificationCode: [],
-    naicsCode: [],
+    naics: [],
   });
 
-  constructor(protected opportunityService: OpportunityService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected opportunityService: OpportunityService,
+    protected naicsService: NaicsService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ opportunity }) => {
       this.updateForm(opportunity);
+
+      this.naicsService.query().subscribe((res: HttpResponse<INaics[]>) => (this.naics = res.body || []));
     });
   }
 
@@ -51,7 +61,7 @@ export class OpportunityUpdateComponent implements OnInit {
       postedTo: opportunity.postedTo,
       reponseDeadLine: opportunity.reponseDeadLine,
       classificationCode: opportunity.classificationCode,
-      naicsCode: opportunity.naicsCode,
+      naics: opportunity.naics,
     });
   }
 
@@ -82,7 +92,7 @@ export class OpportunityUpdateComponent implements OnInit {
       postedTo: this.editForm.get(['postedTo'])!.value,
       reponseDeadLine: this.editForm.get(['reponseDeadLine'])!.value,
       classificationCode: this.editForm.get(['classificationCode'])!.value,
-      naicsCode: this.editForm.get(['naicsCode'])!.value,
+      naics: this.editForm.get(['naics'])!.value,
     };
   }
 
@@ -100,5 +110,9 @@ export class OpportunityUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: INaics): any {
+    return item.id;
   }
 }

@@ -34,7 +34,6 @@ describe('Service Tests', () => {
         currentDate,
         currentDate,
         'AAAAAAA',
-        'AAAAAAA',
         'AAAAAAA'
       );
     });
@@ -93,7 +92,6 @@ describe('Service Tests', () => {
             postedTo: currentDate.format(DATE_FORMAT),
             reponseDeadLine: 'BBBBBB',
             classificationCode: 'BBBBBB',
-            naicsCode: 'BBBBBB',
           },
           elemDefault
         );
@@ -125,7 +123,6 @@ describe('Service Tests', () => {
             postedTo: currentDate.format(DATE_FORMAT),
             reponseDeadLine: 'BBBBBB',
             classificationCode: 'BBBBBB',
-            naicsCode: 'BBBBBB',
           },
           elemDefault
         );
