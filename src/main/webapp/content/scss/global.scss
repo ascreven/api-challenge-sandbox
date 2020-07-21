@@ -1,51 +1,48 @@
-@import 'bootstrap-variables';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+
+$theme-image-path: '~@gsa-sam/sam-styles/src/img';
+$theme-font-path: '~@gsa-sam/sam-styles/src/fonts';
+@import '~@gsa-sam/sam-styles/src/stylesheets/sam';
+
 
 /* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
 
-body,
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 300;
-}
-
-/* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
+// /* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
 a {
-  color: #533f03;
-  font-weight: bold;
+  @include u-text($theme-link-color);
 }
 
 a:hover {
-  color: #533f03;
-}
-
-/* override hover color for dropdown-item forced by bootstrap to all a:not([href]):not([tabindex]) elements in _reboot.scss */
-a:not([href]):not([tabindex]):hover.dropdown-item {
-  color: $dropdown-link-hover-color;
-}
-
-/* override .dropdown-item.active background-color on hover */
-.dropdown-item.active:hover {
-  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
-}
-
-a:hover {
+  @include u-text($theme-link-hover-color);
   /* make sure browsers use the pointer cursor for anchors, even with no href */
   cursor: pointer;
 }
 
-.dropdown-item:hover {
-  color: $dropdown-link-hover-color;
+// /* override hover color for dropdown-item forced by bootstrap to all a:not([href]):not([tabindex]) elements in _reboot.scss */
+a:not([href]):not([tabindex]):hover.dropdown-item {
+  @include u-text($theme-link-hover-color);
 }
 
-/* ==========================================================================
-Browser Upgrade Prompt
-========================================================================== */
+// /* override .dropdown-item.active background-color on hover */
+// .dropdown-item.active:hover {
+//   background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+// }
+
+// a:hover {
+//   /* make sure browsers use the pointer cursor for anchors, even with no href */
+//   cursor: pointer;
+// }
+
+.dropdown-item:hover {
+  @include u-text($theme-link-hover-color);
+}
+
+// /* ==========================================================================
+// Browser Upgrade Prompt
+// ========================================================================== */
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -53,21 +50,21 @@ Browser Upgrade Prompt
   padding: 0.2em 0;
 }
 
-/* ==========================================================================
-Generic styles
-========================================================================== */
+// /* ==========================================================================
+// Generic styles
+// ========================================================================== */
 
-/* Error highlight on input fields */
+// /* Error highlight on input fields */
 .ng-valid[required],
 .ng-valid.required {
-  border-left: 5px solid green;
+  border-left: 5px solid $theme-color-success;
 }
 
 .ng-invalid:not(form) {
-  border-left: 5px solid red;
+  border-left: 5px solid $theme-color-error;
 }
 
-/* other generic styles */
+// /* other generic styles */
 
 .jh-card {
   padding: 1.5%;
@@ -77,7 +74,7 @@ Generic styles
 
 .error {
   color: white;
-  background-color: red;
+  background-color: $theme-color-error;
 }
 
 .pad {
@@ -111,9 +108,9 @@ Generic styles
   cursor: pointer;
 }
 
-/* ==========================================================================
-Custom alerts for notification
-========================================================================== */
+// /* ==========================================================================
+// Custom alerts for notification
+// ========================================================================== */
 .alerts {
   .alert {
     text-overflow: ellipsis;
@@ -153,9 +150,9 @@ Custom alerts for notification
   }
 }
 
-/* ==========================================================================
-entity detail page css
-========================================================================== */
+// /* ==========================================================================
+// entity detail page css
+// ========================================================================== */
 .row.jh-entity-details > {
   dd {
     margin-bottom: 15px;
@@ -175,9 +172,9 @@ entity detail page css
   }
 }
 
-/* ==========================================================================
-ui bootstrap tweaks
-========================================================================== */
+// /* ==========================================================================
+// ui bootstrap tweaks
+// ========================================================================== */
 .nav,
 .pagination,
 .carousel,
@@ -192,4 +189,27 @@ ui bootstrap tweaks
   white-space: nowrap;
 }
 
-/* jhipster-needle-scss-add-main JHipster will add new css style */
+// /* jhipster-needle-scss-add-main JHipster will add new css style */
+button.btn.btn-primary {
+  @extend .usa-button;
+  &:not(:only-of-type) {
+    margin-right: 0;
+  }
+}
+
+.btn-secondary {
+  @extend .usa-button--secondary;
+}
+.btn-info {
+  @extend .usa-button--base;
+}
+.btn-danger {
+  @extend .sds-button--danger;
+}
+.btn-sm {
+  @extend .sds-button--small;
+}
+
+table {
+  @extend .sds-table;
+}
