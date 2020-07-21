@@ -1,0 +1,13 @@
+table {
+  @extend .sds-table;
+}
+
+table.sds-table {
+  .btn-group {
+    button.btn:nth-of-type(even) {
+      > * {
+        background-color: inherit;
+      }
+    }
+  }
+}

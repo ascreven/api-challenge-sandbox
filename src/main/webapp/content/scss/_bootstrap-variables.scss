@@ -1,0 +1,25 @@
+$theme-image-path: '~@gsa-sam/sam-styles/src/img';
+$theme-font-path: '~@gsa-sam/sam-styles/src/fonts';
+@import '~@gsa-sam/sam-styles/src/stylesheets/sam';
+
+// Colors:
+// Grayscale and brand colors for use across Bootstrap.
+
+$primary: #70e17b;
+$secondary: #2672de;
+$success: #00a91c;
+$info: #00bde3;
+$warning: #fbc036;
+$danger: #fb5a47;
+
+// Body:
+// Settings for the `<body>` element.
+
+$body-color: #454540;
+
+// Typography:
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base: 1rem;
+
+$link-color: #3f57a6;

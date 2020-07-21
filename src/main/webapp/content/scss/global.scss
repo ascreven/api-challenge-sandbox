@@ -1,9 +1,12 @@
+@import 'bootstrap-variables';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 
 $theme-image-path: '~@gsa-sam/sam-styles/src/img';
 $theme-font-path: '~@gsa-sam/sam-styles/src/fonts';
 @import '~@gsa-sam/sam-styles/src/stylesheets/sam';
+
+@import "table";
 
 
 /* ==============================================================
@@ -27,22 +30,17 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
 }
 
 // /* override .dropdown-item.active background-color on hover */
-// .dropdown-item.active:hover {
-//   background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
-// }
-
-// a:hover {
-//   /* make sure browsers use the pointer cursor for anchors, even with no href */
-//   cursor: pointer;
-// }
+.dropdown-item.active:hover {
+  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+}
 
 .dropdown-item:hover {
   @include u-text($theme-link-hover-color);
 }
 
-// /* ==========================================================================
-// Browser Upgrade Prompt
-// ========================================================================== */
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -50,9 +48,9 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
   padding: 0.2em 0;
 }
 
-// /* ==========================================================================
-// Generic styles
-// ========================================================================== */
+/* ==========================================================================
+Generic styles
+========================================================================== */
 
 // /* Error highlight on input fields */
 .ng-valid[required],
@@ -64,7 +62,7 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
   border-left: 5px solid $theme-color-error;
 }
 
-// /* other generic styles */
+/* other generic styles */
 
 .jh-card {
   padding: 1.5%;
@@ -108,9 +106,9 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
   cursor: pointer;
 }
 
-// /* ==========================================================================
-// Custom alerts for notification
-// ========================================================================== */
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
 .alerts {
   .alert {
     text-overflow: ellipsis;
@@ -150,9 +148,9 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
   }
 }
 
-// /* ==========================================================================
-// entity detail page css
-// ========================================================================== */
+/* ==========================================================================
+entity detail page css
+========================================================================== */
 .row.jh-entity-details > {
   dd {
     margin-bottom: 15px;
@@ -172,9 +170,9 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
   }
 }
 
-// /* ==========================================================================
-// ui bootstrap tweaks
-// ========================================================================== */
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
 .nav,
 .pagination,
 .carousel,
@@ -189,27 +187,4 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
   white-space: nowrap;
 }
 
-// /* jhipster-needle-scss-add-main JHipster will add new css style */
-button.btn.btn-primary {
-  @extend .usa-button;
-  &:not(:only-of-type) {
-    margin-right: 0;
-  }
-}
-
-.btn-secondary {
-  @extend .usa-button--secondary;
-}
-.btn-info {
-  @extend .usa-button--base;
-}
-.btn-danger {
-  @extend .sds-button--danger;
-}
-.btn-sm {
-  @extend .sds-button--small;
-}
-
-table {
-  @extend .sds-table;
-}
+/* jhipster-needle-scss-add-main JHipster will add new css style */
