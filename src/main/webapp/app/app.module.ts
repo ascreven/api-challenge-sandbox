@@ -7,6 +7,8 @@ import { SandboxCoreModule } from 'app/core/core.module';
 import { SandboxAppRoutingModule } from './app-routing.module';
 import { SandboxHomeModule } from './home/home.module';
 import { SandboxEntityModule } from './entities/entity.module';
+import { SandboxDirectoryModule } from './directory/directory.module';
+import { SandboxDashboardModule } from './dashboard/dashboard.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -20,6 +22,8 @@ import { ErrorComponent } from './layouts/error/error.component';
     SandboxSharedModule,
     SandboxCoreModule,
     SandboxHomeModule,
+    SandboxDirectoryModule,
+    SandboxDashboardModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     SandboxEntityModule,
     SandboxAppRoutingModule,

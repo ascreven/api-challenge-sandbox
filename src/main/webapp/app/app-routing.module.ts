@@ -25,6 +25,14 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         },
+        {
+          path: 'directory',
+          loadChildren: () => import('./directory/directory.module').then(m => m.SandboxDirectoryModule),
+        },
+        {
+          path: 'dashboard',
+          loadChildren: () => import('./dashboard/dashboard.module').then(m => m.SandboxDashboardModule),
+        },
         ...LAYOUT_ROUTES,
       ],
       { enableTracing: DEBUG_INFO_ENABLED }
